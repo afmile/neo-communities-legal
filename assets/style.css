@@ -572,28 +572,113 @@ code {
 }
 
 /* ── Responsive ─────────────────────────────────── */
-@media (max-width: 640px) {
-    .nav-links {
-        display: none;
-    }
+/* ── Tablas: scroll horizontal en mobile ── */
+.data-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
 
+/* ── Mobile nav (oculto en desktop) ── */
+.nav-hamburger {
+    display: none;
+}
+
+.nav-mobile-menu {
+    display: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+
+    /* Nav */
     .nav-inner {
         padding: 0 16px;
     }
 
+    .nav-links {
+        display: none;
+    }
+
+    /* Menú hamburguesa */
+    .nav-hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 8px;
+    }
+
+    .nav-hamburger span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--c-text-primary);
+        border-radius: 2px;
+        transition: opacity 0.2s;
+    }
+
+    /* Mobile nav drawer */
+    .nav-mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background: var(--c-surface);
+        border-bottom: 1px solid var(--c-border);
+        padding: 8px 16px 16px;
+    }
+
+    .nav-mobile-menu.open {
+        display: flex;
+    }
+
+    .nav-mobile-menu a {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--c-border);
+        color: var(--c-text-primary);
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    .nav-mobile-menu a:last-child {
+        border-bottom: none;
+    }
+
+    /* Layout */
     .site-wrapper {
         padding: 0 16px;
     }
 
     .hero {
-        padding: 64px 0 56px;
+        padding: 56px 0 48px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8vw, 40px);
     }
 
     .page-hero {
-        padding: 48px 0 36px;
+        padding: 40px 0 28px;
     }
 
+    .page-hero h1 {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+    /* Cards: 1 columna en pantallas muy pequeñas */
     .cards-grid {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
     }
 }

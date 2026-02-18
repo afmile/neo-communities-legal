@@ -31,8 +31,18 @@
         <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
         <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
       </div>
+      <button class="nav-hamburger" aria-label="Menú" aria-expanded="false"
+        onclick="var m=document.getElementById('mob-nav');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
+  <nav id="mob-nav" class="nav-mobile-menu" aria-label="Menú móvil">
+    <a href="privacy.html" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+    <a href="terms.html" data-es="Términos" data-en="Terms">Términos</a>
+    <a href="support.html" data-es="Soporte" data-en="Support">Soporte</a>
+    <a href="delete-account.html" data-es="Eliminar cuenta" data-en="Delete Account">Eliminar cuenta</a>
+  </nav>
 
   <main>
     <div class="site-wrapper">
