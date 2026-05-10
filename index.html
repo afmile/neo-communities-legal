@@ -27,23 +27,31 @@
         <a href="support.html" data-es="Soporte" data-en="Support">Soporte</a>
         <a href="delete-account.html" data-es="Eliminar cuenta" data-en="Delete Account">Eliminar cuenta</a>
         <a href="child-safety.html" data-es="Seguridad Infantil" data-en="Child Safety">Seguridad Infantil</a>
+        <a href="creator-guidelines.html" data-es="Guía para Creadores" data-en="Creator Guidelines">Guía para Creadores</a>
       </div>
       <div class="nav-lang" aria-label="Seleccionar idioma">
         <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
         <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
       </div>
       <button class="nav-hamburger" aria-label="Menú" aria-expanded="false"
-        onclick="var m=document.getElementById('mob-nav');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);">
+        onclick="var m=document.getElementById('mob-nav');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
   <nav id="mob-nav" class="nav-mobile-menu" aria-label="Menú móvil">
-    <a href="privacy.html" data-es="Privacidad" data-en="Privacy">Privacidad</a>
-    <a href="terms.html" data-es="Términos" data-en="Terms">Términos</a>
-    <a href="support.html" data-es="Soporte" data-en="Support">Soporte</a>
-    <a href="delete-account.html" data-es="Eliminar cuenta" data-en="Delete Account">Eliminar cuenta</a>
-    <a href="child-safety.html" data-es="Seguridad Infantil" data-en="Child Safety">Seguridad Infantil</a>
+    <div class="nav-mobile-inner">
+      <a href="privacy.html" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+      <a href="terms.html" data-es="Términos" data-en="Terms">Términos</a>
+      <a href="support.html" data-es="Soporte" data-en="Support">Soporte</a>
+      <a href="delete-account.html" data-es="Eliminar cuenta" data-en="Delete Account">Eliminar cuenta</a>
+      <a href="child-safety.html" data-es="Seguridad Infantil" data-en="Child Safety">Seguridad Infantil</a>
+      <a href="creator-guidelines.html" data-es="Guía para Creadores" data-en="Creator Guidelines">Guía para Creadores</a>
+      <div class="nav-mobile-lang">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
   </nav>
 
   <main>
@@ -106,6 +114,15 @@
             CSAE/CSAM.</span>
         </a>
 
+        <a href="creator-guidelines.html" class="card-link" id="nav-creator-guidelines">
+          <span class="card-icon" aria-hidden="true">🎨</span>
+          <span class="card-title" data-es="Guía para Creadores" data-en="Creator Guidelines">Guía para
+            Creadores</span>
+          <span class="card-desc" data-es="Especificaciones técnicas para artistas que crean burbujas de chat y marcos de avatar"
+            data-en="Technical specifications for artists creating chat bubbles and avatar frames">Especificaciones
+            técnicas para artistas que crean burbujas de chat y marcos de avatar</span>
+        </a>
+
       </section>
     </div>
   </main>
@@ -117,6 +134,7 @@
       <a href="support.html" data-es="Soporte" data-en="Support">Soporte</a>
       <a href="delete-account.html" data-es="Eliminar cuenta" data-en="Delete Account">Eliminar cuenta</a>
       <a href="child-safety.html" data-es="Seguridad Infantil" data-en="Child Safety">Seguridad Infantil</a>
+      <a href="creator-guidelines.html" data-es="Guía para Creadores" data-en="Creator Guidelines">Guía para Creadores</a>
     </nav>
     <p class="footer-copy" data-es="© 2025 Neo Communities. Todos los derechos reservados."
       data-en="© 2025 Neo Communities. All rights reserved.">
