@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guía para Creadores — Neo Communities</title>
     <meta name="description"
-        content="Especificaciones técnicas para artistas: crea burbujas de chat y marcos de avatar para Neo Communities." />
+        content="Crea burbujas de chat, marcos de avatar y stickers para Neo Communities. Descarga plantillas y empieza a diseñar." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://neocommunities.app/creator-guidelines.html" />
     <link rel="icon"
@@ -58,275 +58,659 @@
 
     <main class="site-wrapper section">
 
-        <div class="page-hero">
-            <p class="eyebrow" data-es="Especificaciones de diseño" data-en="Design specifications">Especificaciones de diseño</p>
-            <h1 id="page-title" data-es="Guía para Creadores" data-en="Creator Guidelines">
-                Guía para Creadores
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 1. HERO -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="creator-hero">
+            <p class="creator-hero-eyebrow" data-es="Guía visual para artistas" data-en="Visual guide for artists">Guía visual para artistas</p>
+            <h1 id="page-title" data-es="Crea diseños para Neo Communities" data-en="Create designs for Neo Communities">
+                Crea diseños para Neo Communities
             </h1>
-            <p class="meta"
-                data-es="Todo lo que necesitas saber para crear burbujas de chat y marcos de avatar para Neos Communities"
-                data-en="Everything you need to know to create chat bubbles and avatar frames for Neos Communities">
-                Todo lo que necesitas saber para crear burbujas de chat y marcos de avatar para Neos Communities
+            <p class="creator-hero-sub"
+                data-es="Descarga una plantilla, dibuja encima y exporta tu PNG transparente."
+                data-en="Download a template, draw on it and export your transparent PNG.">
+                Descarga una plantilla, dibuja encima y exporta tu PNG transparente.
             </p>
+            <div class="creator-hero-ctas">
+                <a href="#bubble-guide" class="cta-btn cta-primary" data-es="&#8595; Plantilla de burbuja" data-en="&#8595; Bubble template">&#8595; Plantilla de burbuja</a>
+                <a href="#frame-guide" class="cta-btn cta-secondary" data-es="&#8595; Plantilla de marco" data-en="&#8595; Frame template">&#8595; Plantilla de marco</a>
+                <a href="#examples" class="cta-btn cta-ghost" data-es="Ver ejemplos" data-en="See examples">Ver ejemplos</a>
+            </div>
         </div>
 
-        <article class="prose" aria-labelledby="page-title">
-
-            <!-- ═══════════════════════════════════════════ -->
-            <!-- SECCIÓN 1: BURBUJAS DE CHAT -->
-            <!-- ═══════════════════════════════════════════ -->
-
-            <h2 data-es="Burbujas de Chat" data-en="Chat Bubbles">Burbujas de Chat</h2>
-
-            <p data-es="En Neos Communities, los usuarios pueden comprar burbujas de chat personalizadas creadas por artistas. Tu diseño reemplazará el fondo visual de cada mensaje de chat del usuario. La burbuja debe escalar correctamente para mensajes cortos y largos sin deformar las esquinas ni la cola."
-                data-en="In Neos Communities, users can purchase custom chat bubbles created by artists. Your design replaces the visual background of each chat message. The bubble must scale correctly for both short and long messages without distorting the corners or tail.">
-                En Neos Communities, los usuarios pueden comprar burbujas de chat personalizadas creadas por artistas. Tu diseño reemplazará el fondo visual de cada mensaje de chat del usuario. La burbuja debe escalar correctamente para mensajes cortos y largos sin deformar las esquinas ni la cola.
-            </p>
-
-            <h3 data-es="Cómo funciona" data-en="How it works">Cómo funciona</h3>
-            <p data-es="Usamos un sistema llamado 9-patch (equivalente al centerSlice de Flutter): la imagen se divide en zonas que pueden estirarse y zonas que permanecen fijas. Solo el área central se estira. Las esquinas y la cola NUNCA se deforman."
-                data-en="We use a system called 9-patch (Flutter's centerSlice equivalent): the image is divided into stretchable zones and fixed zones. Only the central area stretches. Corners and tail NEVER deform.">
-                Usamos un sistema llamado 9-patch (equivalente al centerSlice de Flutter): la imagen se divide en zonas que pueden estirarse y zonas que permanecen fijas. Solo el área central se estira. Las esquinas y la cola NUNCA se deforman.
-            </p>
-
-            <div class="spec-ref spec-card">
-                <h3 data-es="Especificaciones técnicas" data-en="Technical specifications">Especificaciones técnicas</h3>
-                <table class="data-table" aria-label="Especificaciones de burbuja de chat">
-                    <thead>
-                        <tr>
-                            <th data-es="Propiedad" data-en="Property">Propiedad</th>
-                            <th data-es="Valor" data-en="Value">Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong data-es="Canvas" data-en="Canvas">Canvas</strong></td><td>360&times;400px</td></tr>
-                        <tr><td><strong data-es="Formato" data-en="Format">Formato</strong></td><td data-es="PNG con canal alfa (RGBA)" data-en="PNG with alpha channel (RGBA)">PNG con canal alfa (RGBA)</td></tr>
-                        <tr><td><strong data-es="Peso máximo" data-en="Max file size">Peso máximo</strong></td><td>400KB</td></tr>
-                        <tr><td><strong data-es="Radio de esquina" data-en="Corner radius">Radio de esquina</strong></td><td>20px</td></tr>
-                        <tr><td><strong data-es="Cola" data-en="Tail">Cola</strong></td><td data-es="24&times;16px — lado derecho inferior" data-en="24&times;16px — bottom right side">24&times;16px — lado derecho inferior</td></tr>
-                        <tr><td><strong data-es="Safe Text Area" data-en="Safe Text Area">Safe Text Area</strong></td><td>280&times;232px</td></tr>
-                        <tr><td><strong>centerSlice Flutter</strong></td><td>Rect.fromLTWH(40, 40, 280, 304)</td></tr>
-                        <tr><td><strong data-es="Exportar a" data-en="Export to">Exportar a</strong></td><td>360&times;400px</td></tr>
-                    </tbody>
-                </table>
-
-                <h3 data-es="Zonas de diseño" data-en="Design zones">Zonas de diseño</h3>
-                    <ol class="steps" aria-label="Zonas de la burbuja de chat">
-                        <li style="--step-bg:#721A3E;--step-border:#8C2A52;--step-color:#fff">
-                            <div>
-                                <strong data-es="Non-Deformable Corners" data-en="Non-Deformable Corners">Non-Deformable Corners</strong>
-                                &mdash; 40&times;40px en cada esquina
-                                <br><span class="text-muted"
-                                    data-es="Diseña aquí libremente. Los bordes redondeados viven en esta zona."
-                                    data-en="Design freely here. The rounded corners live in this zone.">Diseña aquí libremente. Los bordes redondeados viven en esta zona.</span>
-                            </div>
-                        </li>
-                        <li style="--step-bg:#0C2854;--step-border:#1A3E72;--step-color:#fff">
-                            <div>
-                                <strong data-es="Horizontal Stretch" data-en="Horizontal Stretch">Horizontal Stretch</strong>
-                                &mdash; 280&times;40px bandas superior e inferior
-                                <br><span class="text-muted"
-                                    data-es="Se estira horizontalmente. Usa colores planos o gradientes simples."
-                                    data-en="Stretches horizontally. Use flat colors or simple gradients.">Se estira horizontalmente. Usa colores planos o gradientes simples.</span>
-                            </div>
-                        </li>
-                        <li style="--step-bg:#642E00;--step-border:#824400;--step-color:#fff">
-                            <div>
-                                <strong data-es="Vertical Stretch" data-en="Vertical Stretch">Vertical Stretch</strong>
-                                &mdash; 40&times;320px bandas izquierda y derecha
-                                <br><span class="text-muted"
-                                    data-es="Se estira verticalmente. Evita detalles finos."
-                                    data-en="Stretches vertically. Avoid fine details.">Se estira verticalmente. Evita detalles finos.</span>
-                            </div>
-                        </li>
-                        <li style="--step-bg:#707070;--step-border:#8A8A8A;--step-color:#fff">
-                            <div>
-                                <strong data-es="Center" data-en="Center">Center</strong>
-                                &mdash; 280&times;320px
-                                <br><span class="text-muted"
-                                    data-es="Se estira en ambas direcciones. Solo colores planos o texturas sin bordes."
-                                    data-en="Stretches in both directions. Flat colors or borderless textures only.">Se estira en ambas direcciones. Solo colores planos o texturas sin bordes.</span>
-                            </div>
-                        </li>
-                        <li style="--step-bg:#823E00;--step-border:#A05410;--step-color:#fff">
-                            <div>
-                                <strong data-es="Tail" data-en="Tail">Tail</strong>
-                                &mdash; triángulo 24&times;16px esquina inferior derecha
-                                <br><span class="text-muted"
-                                    data-es="Zona completamente fija. Diseña la cola aquí."
-                                    data-en="Completely fixed zone. Design the tail here.">Zona completamente fija. Diseña la cola aquí.</span>
-                            </div>
-                        </li>
-                    </ol>
-            </div>
-
-            <div class="spec-card" style="margin-top:24px">
-                <div class="diagram-wrap">
-                    <canvas id="bubble-canvas" class="diagram-canvas" aria-label="Chat bubble zone diagram" role="img"></canvas>
-                </div>
-                <div class="diagram-legend">
-                    <span class="diagram-legend-chip" style="--chip-bg:#0A0308;--chip-border:#721A3E" data-es="Esquinas (no deformables)" data-en="Corners (non-deformable)">Esquinas (no deformables)</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:#040810;--chip-border:#0C2854" data-es="H-Stretch (horizontal)" data-en="H-Stretch (horizontal)">H-Stretch (horizontal)</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:#0A0500;--chip-border:#642E00" data-es="V-Stretch (vertical)" data-en="V-Stretch (vertical)">V-Stretch (vertical)</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:#0F1419;--chip-border:#707070" data-es="Centro (stretch total)" data-en="Center (full stretch)">Centro (stretch total)</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:#0A0400;--chip-border:#823E00" data-es="Cola (fija)" data-en="Tail (fixed)">Cola (fija)</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:transparent;--chip-border:rgba(110,91,255,0.35);--chip-dash:6,4" data-es="Safe Text Area" data-en="Safe Text Area">Safe Text Area</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:rgba(110,91,255,0.08);--chip-border:rgba(110,91,255,0.08)" data-es="Inner Padding" data-en="Inner Padding">Inner Padding</span>
-                </div>
-                <p class="diagram-note text-muted"
-                    data-es="Representación escalada. Exporta tu archivo a las dimensiones indicadas en la tabla."
-                    data-en="Scaled representation. Export your file at the dimensions shown in the table.">
-                    Representación escalada. Exporta tu archivo a las dimensiones indicadas en la tabla.
-                </p>
-            </div>
-
-            <h3 data-es="Contexto en el chat" data-en="Chat context">Contexto en el chat</h3>
-
-            <div class="chat-context-mockups">
-                <div class="chat-mockup">
-                    <p class="chat-mockup-title" data-es="Tu vista" data-en="Your view">Tu vista</p>
-                    <div class="chat-screen">
-                        <div class="chat-row-sent">
-                            <div class="chat-content-sent">
-                                <span class="chat-username">Tú</span>
-                                <div class="chat-bubble-sent">
-                                    <span data-es="Tu mensaje" data-en="Your message">Tu mensaje</span>
-                                </div>
-                            </div>
-                            <div class="chat-avatar"></div>
-                        </div>
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 2. CÓMO USAR LAS PLANTILLAS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section class="how-to-section">
+            <h2 class="how-to-title" data-es="Cómo usar las plantillas" data-en="How to use the templates">Cómo usar las plantillas</h2>
+            <div class="how-to-steps">
+                <div class="how-to-step">
+                    <div class="how-to-step-num">1</div>
+                    <div class="how-to-step-body">
+                        <strong data-es="Descarga la plantilla" data-en="Download the template">Descarga la plantilla</strong>
+                        <span data-es="Elige burbuja o marco y descarga el PNG base." data-en="Choose bubble or frame and download the base PNG.">Elige burbuja o marco y descarga el PNG base.</span>
                     </div>
                 </div>
-                <div class="chat-mockup">
-                    <p class="chat-mockup-title" data-es="Vista de otros" data-en="Others' view">Vista de otros</p>
-                    <div class="chat-screen">
-                        <div class="chat-row-recv">
-                            <div class="chat-avatar"></div>
-                            <div class="chat-content-recv">
-                                <span class="chat-username">Otro</span>
-                                <div class="chat-bubble-recv">
-                                    <span data-es="Tu mensaje" data-en="Your message">Tu mensaje</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="how-to-step">
+                    <div class="how-to-step-num">2</div>
+                    <div class="how-to-step-body">
+                        <strong data-es="Ábrela en tu app" data-en="Open it in your app">Ábrela en tu app</strong>
+                        <span data-es="Canva, Procreate, ibisPaint, Photoshop o cualquier app de dibujo." data-en="Canva, Procreate, ibisPaint, Photoshop or any drawing app.">Canva, Procreate, ibisPaint, Photoshop o cualquier app de dibujo.</span>
+                    </div>
+                </div>
+                <div class="how-to-step">
+                    <div class="how-to-step-num">3</div>
+                    <div class="how-to-step-body">
+                        <strong data-es="Dibuja y exporta" data-en="Draw and export">Dibuja y exporta</strong>
+                        <span data-es="Dibuja en las zonas indicadas y exporta como PNG transparente." data-en="Draw in the indicated zones and export as transparent PNG.">Dibuja en las zonas indicadas y exporta como PNG transparente.</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="info-box">
-                <span style="font-size:16px;margin-right:8px;flex-shrink:0" aria-hidden="true">&#8505;</span>
-                <span data-es="Tu diseño se espeja automáticamente. Sube un solo PNG — la app lo adapta para mensajes enviados y recibidos. El avatar del remitente siempre aparece en la esquina superior de la burbuja. Puedes colocar la cola donde prefieras dentro de las zonas no deformables, o diseñar sin cola."
-                    data-en="Your design is automatically mirrored. Upload a single PNG — the app adapts it for both sent and received messages. The sender's avatar always appears at the top corner of the bubble. You can place the tail anywhere within the non-deformable zones, or design without one.">
-                    Tu diseño se espeja automáticamente. Sube un solo PNG — la app lo adapta para mensajes enviados y recibidos. El avatar del remitente siempre aparece en la esquina superior de la burbuja. Puedes colocar la cola donde prefieras dentro de las zonas no deformables, o diseñar sin cola.
-                </span>
-            </div>
-
-            <div class="warn-box">
-                <span style="font-size:16px;margin-right:8px;flex-shrink:0" aria-hidden="true">&#9888;</span>
-                <span data-es="Tu burbuja es un fondo decorativo puro. No incluyas texto, logos, flechas ni elementos asimétricos con significado — se verán invertidos en la vista espejada."
-                    data-en="Your bubble is a pure decorative background. Do not include text, logos, arrows, or meaningful asymmetric elements — they will appear mirrored in the other view.">
-                    Tu burbuja es un fondo decorativo puro. No incluyas texto, logos, flechas ni elementos asimétricos con significado — se verán invertidos en la vista espejada.
-                </span>
-            </div>
-
-            <!-- ═══════════════════════════════════════════ -->
-            <!-- SECCIÓN 2: MARCOS DE AVATAR -->
-            <!-- ═══════════════════════════════════════════ -->
-
-            <h2 data-es="Marcos de Avatar" data-en="Avatar Frames">Marcos de Avatar</h2>
-
-            <p data-es="Los marcos de avatar rodean la foto de perfil del usuario y aparecen en múltiples superficies de la app: perfil, mensajes, listas y notificaciones. A diferencia de las burbujas, los marcos siempre se renderizan a tamaño fijo. El canvas es cuadrado y el PNG se centra automáticamente sobre el avatar."
-                data-en="Avatar frames surround the user's profile photo and appear across multiple app surfaces: profile, messages, lists and notifications. Unlike bubbles, frames always render at a fixed size. The canvas is square and the PNG is automatically centered over the avatar.">
-                Los marcos de avatar rodean la foto de perfil del usuario y aparecen en múltiples superficies de la app: perfil, mensajes, listas y notificaciones. A diferencia de las burbujas, los marcos siempre se renderizan a tamaño fijo. El canvas es cuadrado y el PNG se centra automáticamente sobre el avatar.
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 3. GUÍA SIMPLE DE BURBUJA -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="bubble-guide" class="guide-section">
+            <h2 class="guide-section-title" data-es="Burbujas de Chat" data-en="Chat Bubbles">Burbujas de Chat</h2>
+            <p class="guide-section-desc"
+                data-es="Tu diseño reemplaza el fondo de cada mensaje. La burbuja se estira para mensajes cortos y largos."
+                data-en="Your design replaces the background of each message. The bubble stretches for short and long messages.">
+                Tu diseño reemplaza el fondo de cada mensaje. La burbuja se estira para mensajes cortos y largos.
             </p>
 
-            <h3 data-es="Cómo funciona" data-en="How it works">Cómo funciona</h3>
-            <p data-es="El PNG de 360&times;360px se superpone sobre la foto circular del usuario. La zona central debe permanecer transparente para que la foto sea visible. Puedes diseñar elementos que sobresalgan hacia afuera del marco o que se superpongan ligeramente sobre los bordes de la foto."
-                data-en="The 360&times;360px PNG overlays on the user's circular photo. The central zone must remain transparent so the photo is visible. You can design elements that extend outward from the frame or slightly overlap the photo edges.">
-                El PNG de 360&times;360px se superpone sobre la foto circular del usuario. La zona central debe permanecer transparente para que la foto sea visible. Puedes diseñar elementos que sobresalgan hacia afuera del marco o que se superpongan ligeramente sobre los bordes de la foto.
+            <!-- Visual guide: incoming + outgoing variants -->
+            <div class="simple-diagram-card">
+                <div class="bubble-variants">
+                    <!-- INCOMING: tail top-left -->
+                    <div class="bubble-variant">
+                        <p class="bubble-variant-label" data-es="Mensaje de otro" data-en="Someone else's message">Mensaje de otro</p>
+                        <div class="simple-diagram-wrap">
+                            <svg class="simple-diagram-svg" viewBox="0 0 360 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Burbuja entrante, cola arriba izquierda">
+                                <rect x="0" y="0" width="360" height="400" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <rect x="40" y="56" width="280" height="304" fill="rgba(110,91,255,0.05)" />
+                                <rect x="64" y="80" width="232" height="256" rx="12" fill="rgba(40,200,100,0.06)" stroke="rgba(40,200,100,0.25)" stroke-width="1.5" stroke-dasharray="6,4" />
+                                <path d="M20,0 L316,0 Q340,0 340,20 L340,380 Q340,400 316,400 L20,400 Q0,400 0,376 L0,24 Q0,0 20,0 Z"
+                                      fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.30)" stroke-width="2" />
+                                <path d="M20,20 Q6,24 6,30 Q6,36 20,40 Z"
+                                      fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.30)" stroke-width="2" />
+                                <rect x="0" y="0" width="40" height="56" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <rect x="320" y="0" width="40" height="56" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <rect x="0" y="360" width="40" height="40" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <rect x="320" y="360" width="40" height="40" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <circle cx="20" cy="8" r="8" fill="rgba(110,91,255,0.25)" stroke="rgba(110,91,255,0.40)" stroke-width="1" />
+                                <text x="180" y="190" text-anchor="middle" fill="rgba(80,255,140,0.80)" font-size="13" font-family="system-ui" font-weight="600">Zona limpia</text>
+                                <text x="180" y="210" text-anchor="middle" fill="rgba(80,255,140,0.60)" font-size="11" font-family="system-ui">para el texto</text>
+                                <text x="310" y="32" text-anchor="end" fill="rgba(255,130,170,0.80)" font-size="11" font-family="system-ui" font-weight="600">Esquinas</text>
+                                <text x="180" y="74" text-anchor="middle" fill="rgba(170,150,255,0.75)" font-size="11" font-family="system-ui" font-weight="600">Zona que se estira</text>
+                                <text x="14" y="30" text-anchor="middle" fill="rgba(255,190,90,0.80)" font-size="11" font-family="system-ui" font-weight="600">Cola</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- OUTGOING: tail top-right (what the artist creates) -->
+                    <div class="bubble-variant">
+                        <p class="bubble-variant-label" data-es="Tu mensaje" data-en="Your message">Tu mensaje</p>
+                        <div class="simple-diagram-wrap">
+                            <svg class="simple-diagram-svg" viewBox="0 0 360 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Burbuja saliente, cola arriba derecha">
+                                <rect x="0" y="0" width="360" height="400" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                                <rect x="40" y="56" width="280" height="304" fill="rgba(110,91,255,0.05)" />
+                                <rect x="64" y="80" width="232" height="256" rx="12" fill="rgba(40,200,100,0.06)" stroke="rgba(40,200,100,0.25)" stroke-width="1.5" stroke-dasharray="6,4" />
+                                <path d="M20,0 L316,0 Q340,0 340,20 L340,380 Q340,400 316,400 L20,400 Q0,400 0,376 L0,24 Q0,0 20,0 Z"
+                                      fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.30)" stroke-width="2" />
+                                <path d="M340,20 Q354,24 354,30 Q354,36 340,40 Z"
+                                      fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.30)" stroke-width="2" />
+                                <rect x="0" y="0" width="40" height="56" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <rect x="320" y="0" width="40" height="56" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <rect x="0" y="360" width="40" height="40" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <rect x="320" y="360" width="40" height="40" rx="6" fill="rgba(255,130,170,0.10)" stroke="rgba(255,130,170,0.30)" stroke-width="1.5" />
+                                <circle cx="340" cy="8" r="8" fill="rgba(110,91,255,0.25)" stroke="rgba(110,91,255,0.40)" stroke-width="1" />
+                                <text x="180" y="190" text-anchor="middle" fill="rgba(80,255,140,0.80)" font-size="13" font-family="system-ui" font-weight="600">Zona limpia</text>
+                                <text x="180" y="210" text-anchor="middle" fill="rgba(80,255,140,0.60)" font-size="11" font-family="system-ui">para el texto</text>
+                                <text x="12" y="32" text-anchor="start" fill="rgba(255,130,170,0.80)" font-size="11" font-family="system-ui" font-weight="600">Esquinas</text>
+                                <text x="180" y="74" text-anchor="middle" fill="rgba(170,150,255,0.75)" font-size="11" font-family="system-ui" font-weight="600">Zona que se estira</text>
+                                <text x="346" y="30" text-anchor="middle" fill="rgba(255,190,90,0.80)" font-size="11" font-family="system-ui" font-weight="600">Cola</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simple-diagram-legend">
+                    <span class="legend-chip legend-chip--pink" data-es="Esquinas fijas" data-en="Fixed corners">Esquinas fijas</span>
+                    <span class="legend-chip legend-chip--purple" data-es="Zona que se estira" data-en="Stretch zone">Zona que se estira</span>
+                    <span class="legend-chip legend-chip--green" data-es="Zona limpia para texto" data-en="Clean text zone">Zona limpia para texto</span>
+                    <span class="legend-chip legend-chip--amber" data-es="Cola suave" data-en="Smooth tail">Cola suave</span>
+                </div>
+
+                <p class="bubble-mirror-note" data-es="Sube un solo PNG. La app lo espeja autom&#225;ticamente para mensajes enviados y recibidos." data-en="Upload one PNG. The app mirrors it automatically for sent and received messages.">Sube un solo PNG. La app lo espeja autom&#225;ticamente para mensajes enviados y recibidos.</p>
+            </div>
+
+            <!-- Key rules cards -->
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">&#9998;</div>
+                    <strong data-es="Diseña los bordes y la cola aquí" data-en="Design edges and tail here">Diseña los bordes y la cola aquí</strong>
+                    <span data-es="Las esquinas y la cola nunca se deforman." data-en="Corners and tail never deform.">Las esquinas y la cola nunca se deforman.</span>
+                </div>
+                <div class="rule-card rule-card--good">
+                    <div class="rule-icon">&#10004;</div>
+                    <strong data-es="Deja esta zona libre" data-en="Keep this zone clear">Deja esta zona libre</strong>
+                    <span data-es="Aquí aparecerá el texto del mensaje. No pongas detalles importantes." data-en="Message text appears here. Don't put important details.">Aquí aparecerá el texto del mensaje. No pongas detalles importantes.</span>
+                </div>
+                <div class="rule-card rule-card--warn">
+                    <div class="rule-icon">&#9888;</div>
+                    <strong data-es="Evita detalles aquí" data-en="Avoid details here">Evita detalles aquí</strong>
+                    <span data-es="Esta zona se estira. Los detalles finos se deformarán." data-en="This zone stretches. Fine details will distort.">Esta zona se estira. Los detalles finos se deformarán.</span>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">&#128204;</div>
+                    <strong data-es="La cola en su zona" data-en="Tail in its zone">La cola en su zona</strong>
+                    <span data-es="La cola debe quedar dentro de la esquina inferior derecha." data-en="The tail must stay within the bottom-right corner.">La cola debe quedar dentro de la esquina inferior derecha.</span>
+                </div>
+            </div>
+
+            <div class="download-row">
+                <a href="assets/templates/bubble-template-simple.png" download class="download-btn download-btn--primary" data-es="Descargar plantilla simple &#8595;" data-en="Download simple template &#8595;">Descargar plantilla simple &#8595;</a>
+                <a href="assets/templates/bubble-template-advanced.png" download class="download-btn download-btn--outline" data-es="Plantilla avanzada &#8595;" data-en="Advanced template &#8595;">Plantilla avanzada &#8595;</a>
+            </div>
+
+            <div class="export-reminder">
+                <span class="export-reminder-icon">&#128196;</span>
+                <span data-es="Exporta como <strong>PNG transparente</strong> — sin fondo cuadrado blanco." data-en="Export as <strong>transparent PNG</strong> — no white square background.">Exporta como <strong>PNG transparente</strong> — sin fondo cuadrado blanco.</span>
+            </div>
+
+            <!-- Technical details accordion -->
+            <details class="tech-details">
+                <summary class="tech-details-summary" data-es="Ver detalles técnicos" data-en="View technical details">
+                    <span>Ver detalles técnicos</span>
+                    <span class="tech-details-arrow">&#9654;</span>
+                </summary>
+                <div class="tech-details-body">
+                    <table class="data-table" aria-label="Especificaciones técnicas de burbuja">
+                        <thead>
+                            <tr>
+                                <th data-es="Propiedad" data-en="Property">Propiedad</th>
+                                <th data-es="Valor" data-en="Value">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Canvas</strong></td><td>360&times;400px</td></tr>
+                            <tr><td><strong>Formato</strong></td><td>PNG con canal alfa (RGBA)</td></tr>
+                            <tr><td><strong data-es="Peso máximo" data-en="Max file size">Peso máximo</strong></td><td>800KB</td></tr>
+                            <tr><td><strong>Radio de esquina</strong></td><td>20px</td></tr>
+                            <tr><td><strong>Cola</strong></td><td>24&times;16px — lado derecho inferior</td></tr>
+                            <tr><td><strong>centerSlice</strong></td><td>Rect.fromLTRB(40, 56, 320, 360)</td></tr>
+                            <tr><td><strong data-es="Zona central" data-en="Center zone">Zona central</strong></td><td>280&times;304px</td></tr>
+                            <tr><td><strong>Content padding</strong></td><td>[48, 64, 48, 48]</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-muted tech-note" data-es="El sistema 9-patch divide la imagen en zonas fijas y zonas que se estiran. Solo el área central se estira. Las esquinas y la cola nunca se deforman." data-en="The 9-patch system divides the image into fixed zones and stretchable zones. Only the center area stretches. Corners and tail never deform.">El sistema 9-patch divide la imagen en zonas fijas y zonas que se estiran. Solo el área central se estira. Las esquinas y la cola nunca se deforman.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 4. EJEMPLOS BUENO / MALO — BURBUJAS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="examples" class="examples-section">
+            <h2 class="guide-section-title" data-es="Ejemplos: burbujas" data-en="Examples: bubbles">Ejemplos: burbujas</h2>
+
+            <div class="examples-grid">
+                <!-- Good example -->
+                <div class="example-card example-card--good">
+                    <div class="example-badge example-badge--good" data-es="BUEN DISEÑO" data-en="GOOD DESIGN">BUEN DISEÑO</div>
+                    <div class="example-preview">
+                        <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Buen diseño de burbuja">
+                            <rect width="200" height="180" fill="#1e1e24" />
+                            <g opacity="0.15">
+                                <rect x="0" y="0" width="10" height="10" fill="#aaa" />
+                                <rect x="10" y="10" width="10" height="10" fill="#aaa" />
+                                <rect x="10" y="0" width="10" height="10" fill="#666" />
+                                <rect x="0" y="10" width="10" height="10" fill="#666" />
+                            </g>
+                            <!-- Bubble body with smooth tail at top-right -->
+                            <path d="M12,4 L168,4 Q188,4 188,20 L188,156 Q188,176 168,176 L12,176 Q0,176 0,164 L0,20 Q0,4 12,4 Z" fill="rgba(110,91,255,0.08)" stroke="#9b8cff" stroke-width="3" />
+                            <path d="M188,20 Q198,24 198,30 Q198,36 188,40 Z" fill="rgba(110,91,255,0.08)" stroke="#9b8cff" stroke-width="3" />
+                            <!-- Decorative corner elements -->
+                            <circle cx="14" cy="14" r="5" fill="#c4b5fd" opacity="0.8" />
+                            <circle cx="186" cy="164" r="5" fill="#c4b5fd" opacity="0.8" />
+                            <circle cx="14" cy="164" r="5" fill="#c4b5fd" opacity="0.8" />
+                            <!-- Center area: clean -->
+                            <text x="100" y="95" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="system-ui">texto aquí</text>
+                        </svg>
+                    </div>
+                    <ul class="example-checks">
+                        <li data-es="Centro limpio para el texto" data-en="Clean center for text">Centro limpio para el texto</li>
+                        <li data-es="Bordes decorativos" data-en="Decorative borders">Bordes decorativos</li>
+                        <li data-es="Cola clara" data-en="Clear tail">Cola clara</li>
+                        <li data-es="Transparencia real" data-en="Real transparency">Transparencia real</li>
+                    </ul>
+                </div>
+
+                <!-- Bad example -->
+                <div class="example-card example-card--bad">
+                    <div class="example-badge example-badge--bad" data-es="MAL DISEÑO" data-en="BAD DESIGN">MAL DISEÑO</div>
+                    <div class="example-preview">
+                        <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mal diseño de burbuja">
+                            <!-- White square background (bad) -->
+                            <rect width="200" height="180" fill="#cccccc" />
+                            <!-- Bubble shape -->
+                            <path d="M12,4 L172,4 Q188,4 188,20 L188,156 Q188,176 172,176 L12,176 Q0,176 0,164 L0,20 Q0,4 12,4 Z" fill="white" stroke="#ff453a" stroke-width="3" />
+                            <path d="M172,156 L200,168 L172,176" fill="white" stroke="#ff453a" stroke-width="3" />
+                            <!-- Full illustration in center (bad) -->
+                            <circle cx="100" cy="88" r="36" fill="#ff453a" opacity="0.35" />
+                            <text x="100" y="82" text-anchor="middle" fill="#cc2222" font-size="10" font-family="system-ui" font-weight="600">ilustración</text>
+                            <text x="100" y="98" text-anchor="middle" fill="#cc2222" font-size="10" font-family="system-ui" font-weight="600">completa</text>
+                            <!-- Details in stretch zone (bad) -->
+                            <rect x="30" y="4" width="140" height="12" fill="#ff453a" opacity="0.5" rx="4" />
+                            <text x="100" y="14" text-anchor="middle" fill="#ff453a" font-size="9" font-family="system-ui" font-weight="600">detalles aquí</text>
+                            <!-- X marks -->
+                            <line x1="8" y1="8" x2="24" y2="24" stroke="#ff453a" stroke-width="3" stroke-linecap="round" />
+                            <line x1="24" y1="8" x2="8" y2="24" stroke="#ff453a" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <ul class="example-checks example-checks--bad">
+                        <li data-es="Ilustración completa en el centro" data-en="Full illustration in center">Ilustración completa en el centro</li>
+                        <li data-es="Detalles en zona que se estira" data-en="Details in stretch zone">Detalles en zona que se estira</li>
+                        <li data-es="Fondo cuadrado visible" data-en="Visible square background">Fondo cuadrado visible</li>
+                        <li data-es="Texto difícil de leer" data-en="Hard to read text">Texto difícil de leer</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 5. PREVIEW DE USO -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section class="preview-section">
+            <h2 class="guide-section-title" data-es="Así se ve en el chat" data-en="How it looks in chat">Así se ve en el chat</h2>
+            <p class="guide-section-desc" data-es="La burbuja cambia de tamaño según el mensaje. Tu diseño se adapta en ambas direcciones." data-en="The bubble changes size based on the message. Your design adapts in both directions.">La burbuja cambia de tamaño según el mensaje. Tu diseño se adapta en ambas direcciones.</p>
+
+            <!-- Incoming previews -->
+            <p class="preview-direction-label" data-es="Mensaje de otro" data-en="Someone else's message">Mensaje de otro</p>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <p class="preview-label" data-es="Corto" data-en="Short">Corto</p>
+                    <div class="preview-bubble preview-bubble--incoming preview-bubble--short">
+                        <div class="preview-bubble-inner">Ok</div>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <p class="preview-label" data-es="Medio" data-en="Medium">Medio</p>
+                    <div class="preview-bubble preview-bubble--incoming preview-bubble--medium">
+                        <div class="preview-bubble-inner" data-es="Este es un mensaje de prueba" data-en="This is a test message">Este es un mensaje de prueba</div>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <p class="preview-label" data-es="Largo" data-en="Long">Largo</p>
+                    <div class="preview-bubble preview-bubble--incoming preview-bubble--long">
+                        <div class="preview-bubble-inner" data-es="Hola! Este es un mensaje más largo para que veas cómo la burbuja crece hacia abajo y tu diseño se adapta sin deformar las esquinas ni la cola." data-en="Hi! This is a longer message so you can see how the bubble grows downward and your design adapts without deforming the corners or tail.">Hola! Este es un mensaje más largo para que veas cómo la burbuja crece hacia abajo y tu diseño se adapta sin deformar las esquinas ni la cola.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outgoing previews -->
+            <p class="preview-direction-label" data-es="Tu mensaje" data-en="Your message">Tu mensaje</p>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <p class="preview-label" data-es="Corto" data-en="Short">Corto</p>
+                    <div class="preview-bubble preview-bubble--outgoing preview-bubble--short">
+                        <div class="preview-bubble-inner">Ok</div>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <p class="preview-label" data-es="Medio" data-en="Medium">Medio</p>
+                    <div class="preview-bubble preview-bubble--outgoing preview-bubble--medium">
+                        <div class="preview-bubble-inner" data-es="Este es un mensaje de prueba" data-en="This is a test message">Este es un mensaje de prueba</div>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <p class="preview-label" data-es="Largo" data-en="Long">Largo</p>
+                    <div class="preview-bubble preview-bubble--outgoing preview-bubble--long">
+                        <div class="preview-bubble-inner" data-es="Hola! Este es un mensaje más largo para que veas cómo la burbuja crece hacia abajo y tu diseño se adapta sin deformar las esquinas ni la cola." data-en="Hi! This is a longer message so you can see how the bubble grows downward and your design adapts without deforming the corners or tail.">Hola! Este es un mensaje más largo para que veas cómo la burbuja crece hacia abajo y tu diseño se adapta sin deformar las esquinas ni la cola.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 6. GUÍA SIMPLE DE MARCO -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="frame-guide" class="guide-section">
+            <h2 class="guide-section-title" data-es="Marcos de Perfil" data-en="Profile Frames">Marcos de Perfil</h2>
+            <p class="guide-section-desc"
+                data-es="Tu diseño rodea la foto de perfil del usuario. Aparece en el perfil, mensajes y listas."
+                data-en="Your design surrounds the user's profile photo. It appears on the profile, messages and lists.">
+                Tu diseño rodea la foto de perfil del usuario. Aparece en el perfil, mensajes y listas.
             </p>
 
-            <div class="spec-ref spec-card">
-                <h3 data-es="Especificaciones técnicas" data-en="Technical specifications">Especificaciones técnicas</h3>
-                <table class="data-table" aria-label="Especificaciones de marco de avatar">
-                    <thead>
-                        <tr>
-                            <th data-es="Propiedad" data-en="Property">Propiedad</th>
-                            <th data-es="Valor" data-en="Value">Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong data-es="Canvas" data-en="Canvas">Canvas</strong></td><td>360&times;360px</td></tr>
-                        <tr><td><strong data-es="Formato" data-en="Format">Formato</strong></td><td data-es="PNG con canal alfa (RGBA)" data-en="PNG with alpha channel (RGBA)">PNG con canal alfa (RGBA)</td></tr>
-                        <tr><td><strong data-es="Peso máximo" data-en="Max file size">Peso máximo</strong></td><td>300KB</td></tr>
-                        <tr><td><strong data-es="Frame Circle" data-en="Frame Circle">Frame Circle</strong></td><td>&oslash;288px</td></tr>
-                        <tr><td><strong data-es="Outer Overflow" data-en="Outer Overflow">Outer Overflow</strong></td><td data-es="36px por lado" data-en="36px per side">36px por lado</td></tr>
-                        <tr><td><strong data-es="Inner Overlap" data-en="Inner Overlap">Inner Overlap</strong></td><td>12px</td></tr>
-                        <tr><td><strong data-es="Protected Zone" data-en="Protected Zone">Protected Zone</strong></td><td data-es="&oslash;264px (debe quedar transparente)" data-en="&oslash;264px (must remain transparent)">&oslash;264px (debe quedar transparente)</td></tr>
-                        <tr><td><strong data-es="Exportar a" data-en="Export to">Exportar a</strong></td><td>360&times;360px</td></tr>
-                    </tbody>
-                </table>
+            <!-- Visual guide SVG -->
+            <div class="simple-diagram-card">
+                <div class="simple-diagram-wrap">
+                    <svg class="simple-diagram-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Guía visual de marco de avatar">
+                        <!-- Canvas border: the real PNG edge -->
+                        <rect x="0" y="0" width="360" height="360" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
 
-                <h3 data-es="Zonas de diseño" data-en="Design zones">Zonas de diseño</h3>
-                <ol class="steps" aria-label="Zonas del marco de avatar">
-                    <li style="--step-bg:#0E2B54;--step-border:#1C4374;--step-color:#fff">
-                        <div>
-                            <strong data-es="Outer Overflow Zone" data-en="Outer Overflow Zone">Outer Overflow Zone</strong>
-                            &mdash; banda de 36px desde el borde del canvas
-                            <br><span class="text-muted"
-                                data-es="PUEDES colocar elementos decorativos aquí. Sobresaldrán del marco principal (llamas, alas, brillos externos)."
-                                data-en="You CAN place decorative elements here. They will extend beyond the main frame (flames, wings, outer glows).">PUEDES colocar elementos decorativos aquí. Sobresaldrán del marco principal (llamas, alas, brillos externos).</span>
-                        </div>
-                    </li>
-                    <li style="--step-bg:#5A5A5A;--step-border:#767676;--step-color:#fff">
-                        <div>
-                            <strong data-es="Frame Ring" data-en="Frame Ring">Frame Ring</strong>
-                            &mdash; banda principal entre &oslash;288px e Inner Overlap
-                            <br><span class="text-muted"
-                                data-es="Aquí vive el grueso de tu diseño: el anillo principal, texturas, ornamentos, patrones."
-                                data-en="The bulk of your design lives here: the main ring, textures, ornaments, patterns.">Aquí vive el grueso de tu diseño: el anillo principal, texturas, ornamentos, patrones.</span>
-                        </div>
-                    </li>
-                    <li style="--step-bg:#7A5500;--step-border:#9E7110;--step-color:#fff">
-                        <div>
-                            <strong data-es="Inner Overlap Zone" data-en="Inner Overlap Zone">Inner Overlap Zone</strong>
-                            &mdash; banda de 12px dentro de &oslash;288px
-                            <br><span class="text-muted"
-                                data-es="PUEDES colocar elementos aquí. Se superpondrán sobre los bordes de la foto del usuario."
-                                data-en="You CAN place elements here. They will overlap the user's photo edges.">PUEDES colocar elementos aquí. Se superpondrán sobre los bordes de la foto del usuario.</span>
-                        </div>
-                    </li>
-                    <li style="--step-bg:#9B1E1E;--step-border:#B83030;--step-color:#fff">
-                        <div>
-                            <strong data-es="Protected Avatar Zone" data-en="Protected Avatar Zone">Protected Avatar Zone</strong>
-                            &mdash; círculo &oslash;264px centrado
-                            <br><span class="text-muted"
-                                data-es="DEBE quedar completamente transparente. Es donde aparece la foto del usuario."
-                                data-en="MUST remain completely transparent. This is where the user's photo appears.">DEBE quedar completamente transparente. Es donde aparece la foto del usuario.</span>
-                        </div>
-                    </li>
-                </ol>
+                        <!-- Outer overflow zone — from r=144 to r=180 (36px from edge) -->
+                        <!-- Layered: fill r=180, then override center with frame zone -->
+                        <circle cx="180" cy="180" r="180" fill="rgba(110,91,255,0.10)" stroke="rgba(110,91,255,0.40)" stroke-width="2" stroke-dasharray="8,5" />
+
+                        <!-- Frame ring area — overwrites center of outer overflow -->
+                        <circle cx="180" cy="180" r="144" fill="rgba(20,20,25,0.80)" stroke="rgba(255,255,255,0.40)" stroke-width="3" />
+
+                        <!-- Protected zone (avatar area) — r=132 must be transparent -->
+                        <circle cx="180" cy="180" r="132" fill="rgba(220,50,50,0.25)" stroke="rgba(220,50,50,0.65)" stroke-width="2.5" stroke-dasharray="6,4" />
+
+                        <!-- Avatar placeholder silhouette -->
+                        <circle cx="180" cy="180" r="80" fill="rgba(255,255,255,0.10)" />
+                        <circle cx="180" cy="155" r="22" fill="rgba(255,255,255,0.18)" />
+                        <ellipse cx="180" cy="212" rx="38" ry="26" fill="rgba(255,255,255,0.18)" />
+
+                        <!-- Decorative examples showing allowed overflow (small triangles) -->
+                        <path d="M180,6 L192,28 L168,28 Z" fill="rgba(255,210,60,0.55)" />
+                        <path d="M180,354 L192,332 L168,332 Z" fill="rgba(255,210,60,0.55)" />
+                        <path d="M6,180 L28,168 L28,192 Z" fill="rgba(255,210,60,0.55)" />
+                        <path d="M354,180 L332,168 L332,192 Z" fill="rgba(255,210,60,0.55)" />
+
+                        <!-- Labels -->
+                        <text x="180" y="172" text-anchor="middle" fill="rgba(255,80,80,0.95)" font-size="14" font-family="system-ui" font-weight="700">Foto del usuario</text>
+                        <text x="180" y="194" text-anchor="middle" fill="rgba(255,80,80,0.78)" font-size="12" font-family="system-ui">no tapes aquí</text>
+
+                        <text x="180" y="44" text-anchor="middle" fill="rgba(255,210,60,0.95)" font-size="12" font-family="system-ui" font-weight="700">Puedes decorar aquí</text>
+                        <text x="180" y="326" text-anchor="middle" fill="rgba(170,150,255,0.95)" font-size="12" font-family="system-ui" font-weight="700">Dibuja el marco aquí</text>
+                    </svg>
+                </div>
+
+                <div class="simple-diagram-legend">
+                    <span class="legend-chip legend-chip--purple" data-es="Zona para decorar" data-en="Zone to decorate">Zona para decorar</span>
+                    <span class="legend-chip legend-chip--red" data-es="Foto del usuario — no tapes" data-en="User photo — don't cover">Foto del usuario — no tapes</span>
+                    <span class="legend-chip legend-chip--amber" data-es="Puedes sobresalir un poco" data-en="Can extend slightly">Puedes sobresalir un poco</span>
+                </div>
             </div>
 
-            <div class="spec-card" style="margin-top:24px">
-                <div class="diagram-wrap">
-                    <canvas id="frame-canvas" class="diagram-canvas" aria-label="Avatar frame zone diagram" role="img"></canvas>
+            <!-- Key rules cards -->
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">&#9998;</div>
+                    <strong data-es="Dibuja el marco aquí" data-en="Draw the frame here">Dibuja el marco aquí</strong>
+                    <span data-es="El anillo alrededor de la foto es tu lienzo principal." data-en="The ring around the photo is your main canvas.">El anillo alrededor de la foto es tu lienzo principal.</span>
                 </div>
-                <div class="diagram-legend">
-                    <span class="diagram-legend-chip" style="--chip-bg:#091525;--chip-border:#0E2B54" data-es="Outer Overflow Zone" data-en="Outer Overflow Zone">Outer Overflow Zone</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:#141414;--chip-border:#5A5A5A" data-es="Frame Ring" data-en="Frame Ring">Frame Ring</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:#1E1400;--chip-border:#7A5500" data-es="Inner Overlap Zone" data-en="Inner Overlap Zone">Inner Overlap Zone</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:rgba(155,30,30,0.65);--chip-border:rgba(255,255,255,0.65)" data-es="Protected Zone (transparente)" data-en="Protected Zone (transparent)">Protected Zone (transparente)</span>
-                    <span class="diagram-legend-chip" style="--chip-bg:transparent;--chip-border:rgba(255,255,255,0.65);--chip-dash:6,4" data-es="Frame Boundary &oslash;288px" data-en="Frame Boundary &oslash;288px">Frame Boundary &oslash;288px</span>
+                <div class="rule-card rule-card--good">
+                    <div class="rule-icon">&#10004;</div>
+                    <strong data-es="Puedes salir un poco hacia afuera" data-en="Can extend slightly outward">Puedes salir un poco hacia afuera</strong>
+                    <span data-es="Las decoraciones pueden sobresalir del marco: alas, llamas, brillos." data-en="Decorations can extend beyond the frame: wings, flames, glows.">Las decoraciones pueden sobresalir del marco: alas, llamas, brillos.</span>
                 </div>
-                <p class="diagram-note text-muted"
-                    data-es="Representación escalada. Exporta tu archivo a las dimensiones indicadas en la tabla."
-                    data-en="Scaled representation. Export your file at the dimensions shown in the table.">
-                    Representación escalada. Exporta tu archivo a las dimensiones indicadas en la tabla.
-                </p>
+                <div class="rule-card rule-card--warn">
+                    <div class="rule-icon">&#9888;</div>
+                    <strong data-es="No tapes la foto" data-en="Don't cover the photo">No tapes la foto</strong>
+                    <span data-es="El centro debe quedar transparente para que se vea la foto del usuario." data-en="The center must remain transparent so the user's photo shows.">El centro debe quedar transparente para que se vea la foto del usuario.</span>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">&#128196;</div>
+                    <strong data-es="PNG transparente" data-en="Transparent PNG">PNG transparente</strong>
+                    <span data-es="Exporta sin fondo cuadrado. Solo tu diseño debe verse." data-en="Export without square background. Only your design should show.">Exporta sin fondo cuadrado. Solo tu diseño debe verse.</span>
+                </div>
             </div>
 
-        </article>
+            <div class="download-row">
+                <a href="assets/templates/frame-template-simple.png" download class="download-btn download-btn--primary" data-es="Descargar plantilla simple &#8595;" data-en="Download simple template &#8595;">Descargar plantilla simple &#8595;</a>
+                <a href="assets/templates/frame-template-advanced.png" download class="download-btn download-btn--outline" data-es="Plantilla avanzada &#8595;" data-en="Advanced template &#8595;">Plantilla avanzada &#8595;</a>
+            </div>
+
+            <div class="export-reminder">
+                <span class="export-reminder-icon">&#128196;</span>
+                <span data-es="Exporta como <strong>PNG transparente</strong> — sin fondo cuadrado blanco." data-en="Export as <strong>transparent PNG</strong> — no white square background.">Exporta como <strong>PNG transparente</strong> — sin fondo cuadrado blanco.</span>
+            </div>
+
+            <!-- Technical details accordion -->
+            <details class="tech-details">
+                <summary class="tech-details-summary" data-es="Ver detalles técnicos" data-en="View technical details">
+                    <span>Ver detalles técnicos</span>
+                    <span class="tech-details-arrow">&#9654;</span>
+                </summary>
+                <div class="tech-details-body">
+                    <table class="data-table" aria-label="Especificaciones técnicas de marco">
+                        <thead>
+                            <tr>
+                                <th data-es="Propiedad" data-en="Property">Propiedad</th>
+                                <th data-es="Valor" data-en="Value">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Canvas</strong></td><td>360&times;360px</td></tr>
+                            <tr><td><strong>Formato</strong></td><td>PNG con canal alfa (RGBA)</td></tr>
+                            <tr><td><strong data-es="Peso máximo" data-en="Max file size">Peso máximo</strong></td><td>600KB</td></tr>
+                            <tr><td><strong data-es="Foto del usuario" data-en="User photo">Foto del usuario</strong></td><td>&oslash;264px centrada</td></tr>
+                            <tr><td><strong data-es="Límite del marco" data-en="Frame boundary">Límite del marco</strong></td><td>&oslash;288px</td></tr>
+                            <tr><td><strong data-es="Zona protegida" data-en="Protected zone">Zona protegida</strong></td><td>&oslash;264px (debe quedar transparente)</td></tr>
+                            <tr><td><strong data-es="Puede sobresalir" data-en="Can overflow">Puede sobresalir</strong></td><td>36px por lado</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-muted tech-note" data-es="El PNG de 360×360px se centra sobre la foto circular del usuario. La zona central debe permanecer transparente." data-en="The 360×360px PNG is centered over the user's circular photo. The central zone must remain transparent.">El PNG de 360×360px se centra sobre la foto circular del usuario. La zona central debe permanecer transparente.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 7. EJEMPLOS BUENO / MALO — MARCOS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section class="examples-section">
+            <h2 class="guide-section-title" data-es="Ejemplos: marcos" data-en="Examples: frames">Ejemplos: marcos</h2>
+
+            <div class="examples-grid">
+                <!-- Good example -->
+                <div class="example-card example-card--good">
+                    <div class="example-badge example-badge--good" data-es="BUEN DISEÑO" data-en="GOOD DESIGN">BUEN DISEÑO</div>
+                    <div class="example-preview">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Buen diseño de marco">
+                            <rect width="200" height="200" fill="#1e1e24" />
+                            <!-- Transparency pattern -->
+                            <g opacity="0.15">
+                                <rect x="0" y="0" width="10" height="10" fill="#aaa" />
+                                <rect x="10" y="10" width="10" height="10" fill="#aaa" />
+                                <rect x="10" y="0" width="10" height="10" fill="#666" />
+                                <rect x="0" y="10" width="10" height="10" fill="#666" />
+                            </g>
+                            <!-- Avatar placeholder -->
+                            <circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.12)" />
+                            <circle cx="100" cy="85" r="14" fill="rgba(255,255,255,0.22)" />
+                            <ellipse cx="100" cy="118" rx="22" ry="16" fill="rgba(255,255,255,0.22)" />
+                            <!-- Frame ring -->
+                            <circle cx="100" cy="100" r="66" fill="none" stroke="#9b8cff" stroke-width="5" />
+                            <circle cx="100" cy="100" r="66" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity="0.7" />
+                            <!-- Decorative extensions -->
+                            <path d="M100,20 L110,38 L90,38 Z" fill="#c4b5fd" opacity="0.9" />
+                            <path d="M100,180 L110,162 L90,162 Z" fill="#c4b5fd" opacity="0.9" />
+                            <circle cx="30" cy="100" r="6" fill="#c4b5fd" opacity="0.8" />
+                            <circle cx="170" cy="100" r="6" fill="#c4b5fd" opacity="0.8" />
+                        </svg>
+                    </div>
+                    <ul class="example-checks">
+                        <li data-es="Fondo transparente" data-en="Transparent background">Fondo transparente</li>
+                        <li data-es="Decoración alrededor del avatar" data-en="Decoration around avatar">Decoración alrededor del avatar</li>
+                        <li data-es="No tapa la cara" data-en="Doesn't cover face">No tapa la cara</li>
+                        <li data-es="Bordes no cuadrados" data-en="Non-square borders">Bordes no cuadrados</li>
+                    </ul>
+                </div>
+
+                <!-- Bad example -->
+                <div class="example-card example-card--bad">
+                    <div class="example-badge example-badge--bad" data-es="MAL DISEÑO" data-en="BAD DESIGN">MAL DISEÑO</div>
+                    <div class="example-preview">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mal diseño de marco">
+                            <!-- White square background (bad) -->
+                            <rect width="200" height="200" fill="#cccccc" />
+                            <!-- Avatar placeholder -->
+                            <circle cx="100" cy="100" r="50" fill="#aaaaaa" />
+                            <circle cx="100" cy="85" r="14" fill="#888888" />
+                            <ellipse cx="100" cy="118" rx="22" ry="16" fill="#888888" />
+                            <!-- Design covering the photo (bad) -->
+                            <rect x="55" y="50" width="90" height="100" fill="#ff453a" opacity="0.4" rx="6" />
+                            <text x="100" y="105" text-anchor="middle" fill="#ff453a" font-size="10" font-family="system-ui" font-weight="700">tapa la foto</text>
+                            <!-- Square frame (bad) -->
+                            <rect x="15" y="15" width="170" height="170" fill="none" stroke="#ff453a" stroke-width="4" rx="0" />
+                            <!-- X mark -->
+                            <line x1="7" y1="7" x2="23" y2="23" stroke="#ff453a" stroke-width="3.5" stroke-linecap="round" />
+                            <line x1="23" y1="7" x2="7" y2="23" stroke="#ff453a" stroke-width="3.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <ul class="example-checks example-checks--bad">
+                        <li data-es="Fondo cuadrado visible" data-en="Visible square background">Fondo cuadrado visible</li>
+                        <li data-es="Diseño dentro de la foto" data-en="Design inside photo">Diseño dentro de la foto</li>
+                        <li data-es="Tapa demasiado el avatar" data-en="Covers too much of avatar">Tapa demasiado el avatar</li>
+                        <li data-es="No usa transparencia" data-en="Doesn't use transparency">No usa transparencia</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 8. STICKERS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="stickers" class="guide-section">
+            <h2 class="guide-section-title" data-es="Stickers" data-en="Stickers">Stickers</h2>
+            <p class="guide-section-desc"
+                data-es="Los stickers son imágenes decorativas que los usuarios envían en el chat."
+                data-en="Stickers are decorative images that users send in chat.">
+                Los stickers son imágenes decorativas que los usuarios envían en el chat.
+            </p>
+
+            <div class="sticker-rules">
+                <div class="sticker-rule">
+                    <div class="sticker-rule-num">1</div>
+                    <div class="sticker-rule-body">
+                        <strong>PNG transparente</strong>
+                        <span data-es="Sin fondo cuadrado." data-en="No square background.">Sin fondo cuadrado.</span>
+                    </div>
+                </div>
+                <div class="sticker-rule">
+                    <div class="sticker-rule-num">2</div>
+                    <div class="sticker-rule-body">
+                        <strong>512&times;512px</strong>
+                        <span data-es="Tamaño exacto del canvas." data-en="Exact canvas size.">Tamaño exacto del canvas.</span>
+                    </div>
+                </div>
+                <div class="sticker-rule">
+                    <div class="sticker-rule-num">3</div>
+                    <div class="sticker-rule-body">
+                        <strong data-es="Mínimo 8 por pack" data-en="Minimum 8 per pack">Mínimo 8 por pack</strong>
+                        <span data-es="Cada pack debe tener al menos 8 stickers." data-en="Each pack must have at least 8 stickers.">Cada pack debe tener al menos 8 stickers.</span>
+                    </div>
+                </div>
+                <div class="sticker-rule">
+                    <div class="sticker-rule-num">4</div>
+                    <div class="sticker-rule-body">
+                        <strong data-es="Diseño centrado" data-en="Centered design">Diseño centrado</strong>
+                        <span data-es="El sticker debe verse bien centrado en el canvas." data-en="The sticker should look centered on the canvas.">El sticker debe verse bien centrado en el canvas.</span>
+                    </div>
+                </div>
+                <div class="sticker-rule">
+                    <div class="sticker-rule-num">5</div>
+                    <div class="sticker-rule-body">
+                        <strong data-es="Legible en pequeño" data-en="Legible at small size">Legible en pequeño</strong>
+                        <span data-es="Se verá en tamaño reducido en el chat. Evita detalles muy finos." data-en="It will appear small in chat. Avoid very fine details.">Se verá en tamaño reducido en el chat. Evita detalles muy finos.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-row">
+                <a href="assets/templates/sticker-template.png" download class="download-btn download-btn--primary" data-es="&#8595; Descargar plantilla" data-en="&#8595; Download template">&#8595; Descargar plantilla</a>
+            </div>
+
+            <!-- Sticker preview -->
+            <div class="sticker-preview-wrap">
+                <div class="sticker-preview">
+                    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ejemplo de sticker">
+                        <rect width="120" height="120" fill="#1e1e24" />
+                        <g opacity="0.18">
+                            <rect x="0" y="0" width="10" height="10" fill="#aaa" />
+                            <rect x="10" y="10" width="10" height="10" fill="#aaa" />
+                            <rect x="10" y="0" width="10" height="10" fill="#666" />
+                            <rect x="0" y="10" width="10" height="10" fill="#666" />
+                        </g>
+                        <!-- Simple sticker example -->
+                        <circle cx="60" cy="52" r="30" fill="#6e5bff" opacity="0.9" />
+                        <circle cx="49" cy="45" r="5" fill="white" />
+                        <circle cx="71" cy="45" r="5" fill="white" />
+                        <path d="M46,60 Q60,75 74,60" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                    <p class="sticker-preview-label" data-es="512×512 — PNG transparente" data-en="512×512 — transparent PNG">512×512 — PNG transparente</p>
+                </div>
+            </div>
+
+            <!-- Technical details accordion -->
+            <details class="tech-details">
+                <summary class="tech-details-summary" data-es="Ver detalles técnicos" data-en="View technical details">
+                    <span>Ver detalles técnicos</span>
+                    <span class="tech-details-arrow">&#9654;</span>
+                </summary>
+                <div class="tech-details-body">
+                    <table class="data-table" aria-label="Especificaciones técnicas de stickers">
+                        <thead>
+                            <tr>
+                                <th data-es="Propiedad" data-en="Property">Propiedad</th>
+                                <th data-es="Valor" data-en="Value">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Canvas</strong></td><td>512&times;512px</td></tr>
+                            <tr><td><strong>Formato</strong></td><td>PNG con canal alfa (RGBA)</td></tr>
+                            <tr><td><strong data-es="Mínimo por pack" data-en="Minimum per pack">Mínimo por pack</strong></td><td>8 stickers</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 9. RESUMEN TÉCNICO COMPLETO -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section id="tech-specs" class="tech-specs-section">
+            <h2 class="guide-section-title" data-es="Resumen técnico completo" data-en="Complete technical summary">Resumen técnico completo</h2>
+            <p class="guide-section-desc" data-es="Todos los valores técnicos en un solo lugar." data-en="All technical values in one place.">Todos los valores técnicos en un solo lugar.</p>
+
+            <div class="tech-specs-grid">
+                <!-- Bubble specs -->
+                <div class="tech-spec-card">
+                    <h3 class="tech-spec-card-title" data-es="Burbujas de Chat" data-en="Chat Bubbles">Burbujas de Chat</h3>
+                    <ul class="tech-spec-list">
+                        <li><strong>Canvas:</strong> 360&times;400px</li>
+                        <li><strong>Formato:</strong> PNG con canal alfa (RGBA)</li>
+                        <li><strong data-es="Peso máximo:" data-en="Max weight:">Peso máximo:</strong> 800KB</li>
+                        <li><strong>Radio de esquina:</strong> 20px</li>
+                        <li><strong>Cola:</strong> 24&times;16px — lado derecho inferior</li>
+                        <li><strong>centerSlice:</strong> Rect.fromLTRB(40, 56, 320, 360)</li>
+                        <li><strong data-es="Zona central:" data-en="Center zone:">Zona central:</strong> 280&times;304px</li>
+                        <li><strong>Content padding:</strong> [48, 64, 48, 48]</li>
+                    </ul>
+                </div>
+
+                <!-- Frame specs -->
+                <div class="tech-spec-card">
+                    <h3 class="tech-spec-card-title" data-es="Marcos de Perfil" data-en="Profile Frames">Marcos de Perfil</h3>
+                    <ul class="tech-spec-list">
+                        <li><strong>Canvas:</strong> 360&times;360px</li>
+                        <li><strong>Formato:</strong> PNG con canal alfa (RGBA)</li>
+                        <li><strong data-es="Peso máximo:" data-en="Max weight:">Peso máximo:</strong> 600KB</li>
+                        <li><strong data-es="Foto del usuario:" data-en="User photo:">Foto del usuario:</strong> &oslash;264px centrada</li>
+                        <li><strong data-es="Límite del marco:" data-en="Frame boundary:">Límite del marco:</strong> &oslash;288px</li>
+                        <li><strong data-es="Zona protegida:" data-en="Protected zone:">Zona protegida:</strong> &oslash;264px (transparente)</li>
+                        <li><strong data-es="Puede sobresalir:" data-en="Can overflow:">Puede sobresalir:</strong> 36px por lado</li>
+                    </ul>
+                </div>
+
+                <!-- Sticker specs -->
+                <div class="tech-spec-card">
+                    <h3 class="tech-spec-card-title" data-es="Stickers" data-en="Stickers">Stickers</h3>
+                    <ul class="tech-spec-list">
+                        <li><strong>Canvas:</strong> 512&times;512px</li>
+                        <li><strong>Formato:</strong> PNG con canal alfa (RGBA)</li>
+                        <li><strong data-es="Mínimo por pack:" data-en="Minimum per pack:">Mínimo por pack:</strong> 8 stickers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
@@ -344,7 +728,6 @@
         </p>
     </footer>
 
-    <script src="assets/diagrams.js"></script>
     <script src="assets/i18n.js"></script>
 </body>
 
